@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# next.js
+/.next/
+next-env.d.ts
+
 # production
 /build
 
