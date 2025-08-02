@@ -1,0 +1,50 @@
+:root {
+  --black: #292f36;
+  --light-blue: #009ffd;
+  --blue: #4ecdc4;
+  --dark-blue: #30638e;
+  /* --white: #f7fff7; */
+  --white: #ccc;
+  --red: #ff6b6b;
+  --orange: #edae49;
+  --yellow: #ffe66d;
+  --purple: #c3adf4;
+  --cream: #f1dac4;
+  --green: #90be6d;
+  --code-black: #373c47;
+  --code-font-color: #b3b9c5;
+  --font-family: system-ui;
+  /* Breakpoint */
+  --md: 800px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-family: var(--font-family);
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+}
+
+a:hover, .selectedLink {
+  color: red;
+}
+
+
+.pageNameNav {
+  display: flex;
+  gap: 140px;
+  margin-right: 100px;
+}
+

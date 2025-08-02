@@ -1,12 +1,17 @@
+'use client';
 import Link from 'next/link'
+import { usePathname } from 'next/navigation';
 
-type HeaderProps = {
-  pageTitle: string;
-};
 
-export default function Header({ pageTitle }: HeaderProps) {
-  return <nav>
-    {pageTitle !== "Now" && <Link href="/now">Now</Link>}
-    {pageTitle !== "Home" && <Link href="/">Home</Link>}
-  </nav>
+export default function Header() {
+  const pathname = usePathname();
+  return <header>
+    <Link href="/" className={pathname === "/" ? 'selectedLink' : ''}>Home</Link> 
+    <div className="pageNameNav"> 
+        <Link href="/now" className={pathname === "/now" ? 'selectedLink' : ''}>Now</Link>
+        <Link href="/contact" className={pathname === "/contact" ? 'selectedLink' : ''}>Contact</Link>
+    </div>
+    </header>
 }
+
+
