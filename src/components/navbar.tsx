@@ -2,8 +2,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 
-
-export default function Header() {
+export default function Navbar() {
   const pathname = usePathname();
   return <header>
     <Link href="/" className={pathname === "/" ? 'selectedLink' : ''}>Home</Link> 
