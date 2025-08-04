@@ -1,9 +1,16 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   return <footer>
-    this is the footer
+    <Link href="https://boxd.it/MfSz" target="_blank" rel='noopener noreferrer'>
+      <Image src="/letterboxd-decal-dots-neg-mono-500px.png" alt="logo" width={50} height={50} />
+    </Link>
+    <Link href="https://github.com/matrev" target="_blank" rel='noopener noreferrer'>
+      <Image src="/github-mark-white.png" alt="logo" width={50} height={50} />
+    </Link>
+    <a>obliviantproductions.com</a>
     </footer>
 }
 
