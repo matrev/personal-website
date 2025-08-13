@@ -1,8 +1,11 @@
 :root {
   --black: #292f36;
+  --text-color: #DCC9A9;
+  --background-color: #282828;
   --light-blue: #009ffd;
   --blue: #4ecdc4;
   --dark-blue: #30638e;
+  --highlighted-text: #B83A2D;
   /* --white: #f7fff7; */
   --white: #ccc;
   --red: #ff6b6b;
@@ -19,8 +22,8 @@
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.8rem;
   font-family: var(--font-family);
@@ -38,7 +41,7 @@ a {
 }
 
 a:hover, .selectedLink {
-  color: red;
+  color: var(--highlighted-text);
 }
 
 
@@ -46,5 +49,21 @@ a:hover, .selectedLink {
   display: flex;
   gap: 140px;
   margin-right: 100px;
+}
+
+header {
+  height: 5vh;
+}
+
+main {
+  height: 80vh;
+  width: 95vw;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  height: 5vh;
 }
 
