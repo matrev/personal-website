@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
   return <header>
-      <Link href="/" className={pathname === "/" ? 'selectedLink' : ''}>Home</Link> 
+      <Link href="/" className={pathname === "/" ? 'selectedLink' : 'navLink'}>Home</Link> 
       <div className="pageNameNav"> 
-          <Link href="/now" className={pathname === "/now" ? 'selectedLink' : ''}>Now</Link>
-          <Link href="/contact" className={pathname === "/contact" ? 'selectedLink' : ''}>Contact</Link>
+          <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
+          <Link href="/contact" className={pathname === "/contact" ? 'selectedLink' : 'navLink'}>Contact</Link>
       </div>
     </header>
 }
