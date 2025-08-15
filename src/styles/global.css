@@ -38,11 +38,11 @@ header {
 
 a {
   color: white;
+  font-family: var(--font-family);
 }
 
 a:hover, .selectedLink {
   color: var(--highlighted-text);
-  font-size: 1.2rem;
   line-height: 1.8rem;
   font-family: var(--font-family);
   margin: 0;
@@ -66,8 +66,8 @@ a:hover, .selectedLink {
 header {
   margin-top: 10px;
   height: 5vh;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 10vw;
+  margin-left: 10vw;
 }
 
 body {
