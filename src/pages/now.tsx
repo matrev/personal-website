@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import { getMarkdownFiles, parseNowMarkdownFile, ParsedNowPost } from 'utils/markdownUtils';
 
 export const getStaticProps = (async (context) => {
-  const nowPostDirectory = path.join(process.cwd(), 'notes', 'WebSitePosts', 'NowPosts');
+  const nowPostDirectory = path.join(process.cwd(), 'notes', 'WebsitePosts', 'NowPosts');
   const nowPostFilenames = getMarkdownFiles(nowPostDirectory, ["NowTemplate.md"]);
 
   const nowPostsContent = nowPostFilenames.map(file => {
