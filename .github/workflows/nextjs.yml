@@ -35,6 +35,7 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          repositories: notes
       - name: Checkout
         uses: actions/checkout@v4
         with: 
