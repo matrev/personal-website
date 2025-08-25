@@ -7,6 +7,7 @@ export default function Navbar() {
   return <header>
       <Link href="/" className={pathname === "/" ? 'selectedLink' : 'navLink'}>Home</Link> 
       <div className="pageNameNav"> 
+          <Link href="/projects" className={pathname === "/projects" ? 'selectedLink': 'navLink'}>Projects</Link>
           <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
           <Link href="/contact" className={pathname === "/contact" ? 'selectedLink' : 'navLink'}>Contact</Link>
       </div>
