@@ -78,6 +78,8 @@ body {
 
 main {
   height: 80vh;
+	min-height: 0;
+	overflow: auto;
 }
 
 footer {

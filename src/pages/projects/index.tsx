@@ -21,11 +21,16 @@ export default function ProjectPage({
         <div key={preview.slug} className={styles['project-card']}>
           <h2>{preview.data.title}</h2>
           <time dateTime={preview.data.date}>
-            {new Date(preview.data.date).toLocaleDateString()}
+            Last Updated: {new Date(preview.data.date).toLocaleDateString()}
           </time>
-          <Link href={`/projects/${preview.slug}`} className={styles['read-more']}>
-            Read more
-          </Link>
+          <div className={styles['project-action-buttons']}>
+            <Link href={`/projects/${preview.slug}`} className={styles['read-more']}>
+              Read more
+            </Link>
+            {preview.data.source &&
+            (<Link href={preview.data.source} target="_blank" rel='noopener noreferrer' className={styles['read-more']}>Source</Link>)
+            }
+          </div>
         </div>
       ))}
     </div>
