@@ -1,27 +1,25 @@
-import { useRouter } from 'next/router'
- 
-import path from 'path'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { getMarkdownFiles, parseNowMarkdownFile, ParsedNowPost } from 'utils/markdownUtils';
+import Link from 'next/link'
+import { ProjectPreview, getProjectPreviews } from 'utils/markdownUtils';
 
-export const getStaticProps = (async (context) => {
-  const projectPostDirectory = path.join(process.cwd(), 'notes', 'WebsitePosts', 'Projects');
-  const projectFilenames = getMarkdownFiles(projectPostDirectory, ["ProjectTemplate.md"]);
-
-  const nowPostsContent = projectFilenames.map(file => {
-    const filePath = path.join(projectPostDirectory, file);
-    return parseNowMarkdownFile(filePath);
-  })
-
-  return { props: { nowPostsContent } }
+export const getStaticProps = (async () => {
+  const projectPreviews = await getProjectPreviews();
+  return { props: { projectPreviews } }
 }) satisfies GetStaticProps<{
-  nowPostsContent: ParsedNowPost[]
+  projectPreviews: ProjectPreview[]
 }>
 
-export default function Page({
-  nowPostsContent,
+export default function ProjectPage({
+  projectPreviews,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  
-//   const router = useRouter()
-  return <p>Testing posts</p>
+  return <>
+    <h1>Projects</h1>
+    {projectPreviews.map(preview => (
+      <div key={preview.slug}>
+        <h2>{preview.data.title}</h2>
+        <p>{preview.data.date}</p>
+        <Link href={`/projects/${preview.slug}`}>Read more</Link>
+      </div>
+    ))}
+  </>;
 }

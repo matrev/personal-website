@@ -1,20 +1,21 @@
-import path from 'path'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { getMarkdownFiles, parseNowMarkdownFile, ParsedNowPost } from 'utils/markdownUtils';
+import { getMarkdownFiles, parseMarkdownFile, ParsedPost } from 'utils/markdownUtils';
 import ShowMoreButton from 'components/showMoreButton';
+import { CONTENT_DIRECTORIES } from 'utils/constants';
 
 export const getStaticProps = (async (context) => {
-  const nowPostDirectory = path.join(process.cwd(), 'notes', 'WebsitePosts', 'NowPosts');
-  const nowPostFilenames = getMarkdownFiles(nowPostDirectory, ["NowTemplate.md"]);
+  const nowPostFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.NOW, ["NowTemplate.md"]);
 
-  const nowPostsContent = nowPostFilenames.map(file => {
-    const filePath = path.join(nowPostDirectory, file);
-    return parseNowMarkdownFile(filePath);
-  })
+  const nowPostsContent = await Promise.all(
+    nowPostFilenames.map(file => {
+      const filePath =  CONTENT_DIRECTORIES.NOW + '/' + file;
+      return parseMarkdownFile(filePath);
+    })
+  );
 
   return { props: { nowPostsContent } }
 }) satisfies GetStaticProps<{
-  nowPostsContent: ParsedNowPost[]
+  nowPostsContent: ParsedPost[]
 }>
 
 export default function Now({
