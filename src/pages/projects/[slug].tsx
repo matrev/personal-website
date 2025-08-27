@@ -1,6 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
 import { ParsedPost, getAllProjectSlugs, getProjectPost } from 'utils/markdownUtils';
 import parse from 'html-react-parser';
+import Link from 'next/link';
 
 export const getStaticPaths = (async () => {
   const slugs = getAllProjectSlugs();
@@ -26,7 +27,8 @@ export default function ProjectPage({
   projectPostContent,
  }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <article>
+    <>
+      <Link href="/projects">back</Link>
       <h1>{projectPostContent.data.title}</h1>
       {projectPostContent.data.date && (
         <time dateTime={projectPostContent.data.date}>
@@ -36,6 +38,6 @@ export default function ProjectPage({
       <div className="prose">
         {projectPostContent.contentHtml && parse(projectPostContent.contentHtml)}
       </div>
-    </article>
+    </>
   );
 }

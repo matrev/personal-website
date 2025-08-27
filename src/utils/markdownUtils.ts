@@ -8,7 +8,7 @@ import { CONTENT_DIRECTORIES } from './constants';
 export type PostMetadata = {
   title: string,
   date: string,
-  tags?: string,
+  source?: string,
 }
 
 export type ParsedPost = {
@@ -30,7 +30,7 @@ export async function markdownToHtml(markdown: string): Promise<string> {
 }
 
 export async function getProjectPreviews(): Promise<ProjectPreview[]> {
-    const projectFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.PROJECTS, ["ProjectTemplate.md"]);
+    const projectFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.PROJECTS, ["ProjectsTemplate.md"]);
     return projectFilenames.map(file => {
         const filePath = `${CONTENT_DIRECTORIES.PROJECTS}/${file}`;
         const { data } = matter(fs.readFileSync(filePath, 'utf8'));
