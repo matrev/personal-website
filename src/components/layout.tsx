@@ -1,13 +1,15 @@
+
 import Navbar from './navbar';
 import Footer from './footer';
-import { ReactNode } from 'react';
+import { ThemeProvider } from './ThemeContext';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
+
   return (
-    <>
+    <ThemeProvider>
       <Navbar />
       <main>{children}</main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }

@@ -1,24 +1,24 @@
+
 :root {
   --black: #292f36;
-  --text-color: #DCC9A9;
+  --text-color: #f9f6ef;
   --background-color: #282828;
   --light-blue: #009ffd;
   --blue: #4ecdc4;
   --dark-blue: #30638e;
-  --highlighted-text: #B83A2D;
-  /* --white: #f7fff7; */
-  --white: #ccc;
-  --red: #ff6b6b;
-  --orange: #edae49;
-  --yellow: #ffe66d;
-  --purple: #c3adf4;
-  --cream: #f1dac4;
-  --green: #90be6d;
+  --highlighted-text: #497f7f;
   --code-black: #373c47;
   --code-font-color: #b3b9c5;
   --font-family: system-ui;
-  /* Breakpoint */
   --md: 800px;
+}
+
+body.light-mode {
+  --background-color: #f9f6ef;
+  --text-color: #292f36;
+  --highlighted-text: #497f7f;
+  --code-black: #eaeaea;
+  --code-font-color: #292f36;
 }
 
 body {
@@ -36,17 +36,9 @@ header {
   justify-content: space-between;
 }
 
-a {
-  color: white;
-  font-family: var(--font-family);
-}
-
-a:hover, .selectedLink {
+a, a:hover, .selectedLink {
   color: var(--highlighted-text);
-  line-height: 1.8rem;
-  font-size: 1.2rem;
-  font-family: var(--font-family);
-  margin: 0;
+  font-weight: bold;
 }
 
 button {
@@ -71,6 +63,7 @@ button:hover {
   color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.8rem;
+  font-weight: bold;
   font-family: var(--font-family);
   margin: 0;
 }
@@ -93,6 +86,7 @@ header {
 
 body {
   width: 95vw;
+  font-size: 1.2rem;
   margin-left: auto;
   margin-right: auto;
 }
