@@ -7,6 +7,7 @@ import { CONTENT_DIRECTORIES } from './constants';
 
 export type PostMetadata = {
   title: string,
+  subtitle: string,
   date: string,
   source?: string,
 }

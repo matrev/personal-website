@@ -15,8 +15,7 @@ export default function ProjectPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return <>
-    <h1>Projects</h1>
-    <div className={styles['projects-grid']}>
+    <div className={styles['project-page-content']}>
       {projectPreviews.map(preview => (
         <div key={preview.slug} className={styles['project-card']}>
           <h2>{preview.data.title}</h2>
@@ -32,6 +31,7 @@ export default function ProjectPage({
             }
           </div>
         </div>
+        // </div>
       ))}
     </div>
   </>;

@@ -29,13 +29,11 @@
 
 .project-card {
   padding: 1.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-.project-card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 50vw;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .project-card h2 {
@@ -58,6 +56,12 @@
     border: solid 3px #f3f4f6;
     border-radius: 4px;
     padding: 5px;
+}
+
+.project-page-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .read-more {

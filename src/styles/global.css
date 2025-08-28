@@ -24,7 +24,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   line-height: 1.8rem;
   font-family: var(--font-family);
   margin: 0;
@@ -44,8 +44,27 @@ a {
 a:hover, .selectedLink {
   color: var(--highlighted-text);
   line-height: 1.8rem;
+  font-size: 1.2rem;
   font-family: var(--font-family);
   margin: 0;
+}
+
+button {
+  background-color: var(--code-font-color);
+  border: none;
+  border-radius: 4px;
+  color: var(--code-black);
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-family: var(--font-family);
+  transition-duration: 0.4s;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: var(--highlighted-text);
+  color: white;
 }
 
 .navLink {

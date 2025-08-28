@@ -12,7 +12,7 @@ export default function Navbar() {
             className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
           >Projects</Link>
           <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
-          <Link href="/contact" className={pathname === "/contact" ? 'selectedLink' : 'navLink'}>Contact</Link>
+          <Link href="mailto:me@marktrevino.com" className='navLink'>Contact</Link>
       </div>
     </header>
 }
