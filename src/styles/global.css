@@ -59,13 +59,15 @@ a:hover, .selectedLink {
 
 .pageNameNav {
   display: flex;
-  gap: 40px;
+  gap: 20px;
 }
 
 
 header {
   margin-top: 10px;
   height: 5vh;
+  display: flex;
+  gap: 40px;
   margin-right: 10vw;
   margin-left: 10vw;
 }

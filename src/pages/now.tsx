@@ -28,7 +28,7 @@ export default function Now({
 
   return (
   <>
-    <h1>This is what I'm doing right about <a href="https://www.nownownow.com/about" target="_blank" rel='noopener noreferrer'>/now</a></h1>  
+    <h1>This is what I'm up to right about <a href="https://www.nownownow.com/about" target="_blank" rel='noopener noreferrer'>/now</a></h1>  
     <br />
     <h2>{latestNowPost?.data.title}</h2>
     <p>{latestNowPost?.data.date}</p>
