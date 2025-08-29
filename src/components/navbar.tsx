@@ -22,7 +22,6 @@ export default function Navbar() {
           className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
         >Projects</Link>
         <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
-        <Link href="mailto:me@marktrevino.com" className='navLink'>Contact</Link>
         <button className='themeToggleButton' onClick={toggleTheme}>
           <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={24} height={24}/>
         </button>
