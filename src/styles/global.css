@@ -34,6 +34,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 a, a:hover, .selectedLink {
@@ -41,7 +42,7 @@ a, a:hover, .selectedLink {
   font-weight: bold;
 }
 
-button {
+.showMoreButton {
   background-color: var(--code-font-color);
   border: none;
   border-radius: 4px;
@@ -54,10 +55,23 @@ button {
   padding: 10px;
 }
 
-button:hover {
+.showMoreButton:hover {
   background-color: var(--highlighted-text);
   color: white;
 }
+
+.themeToggleButton {
+  background: transparent;
+  border: transparent;
+  padding-top: 6px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.themeToggleButton:hover {
+  cursor: pointer;
+}
+
 
 .navLink {
   color: var(--text-color);
@@ -66,11 +80,13 @@ button:hover {
   font-weight: bold;
   font-family: var(--font-family);
   margin: 0;
+  align-self: center;
 }
 
 
 .pageNameNav {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 

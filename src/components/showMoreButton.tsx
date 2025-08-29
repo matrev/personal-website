@@ -7,7 +7,7 @@ export default function ShowMoreButton({ children }: { children: ReactNode }) {
 
   return (
     <>
-        <button onClick={() => updateMoreShown(!isMoreShown)}>
+        <button className='showMoreButton' onClick={() => updateMoreShown(!isMoreShown)}>
             {isMoreShown ? "Hide" : "Show More"}
         </button>
         {isMoreShown && children}

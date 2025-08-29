@@ -31,7 +31,6 @@ export default function ProjectPage({
             }
           </div>
         </div>
-        // </div>
       ))}
     </div>
   </>;

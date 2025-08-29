@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeContext';
@@ -22,10 +23,10 @@ export default function Navbar() {
         >Projects</Link>
         <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
         <Link href="mailto:me@marktrevino.com" className='navLink'>Contact</Link>
+        <button className='themeToggleButton' onClick={toggleTheme}>
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={24} height={24}/>
+        </button>
       </div>
-      <button onClick={toggleTheme}>
-        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-      </button>
     </header>
   );
 }
