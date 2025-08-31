@@ -72,7 +72,6 @@ a, a:hover, .selectedLink {
   cursor: pointer;
 }
 
-
 .navLink {
   color: var(--text-color);
   font-size: 1.2rem;
@@ -83,17 +82,18 @@ a, a:hover, .selectedLink {
   align-self: center;
 }
 
-
-.pageNameNav {
+/* Show nav by default */
+/* header {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 500px;
+  opacity: 1;
+} */
 
 header {
   margin-top: 10px;
-  height: 5vh;
   display: flex;
   gap: 40px;
   margin-right: 10vw;
@@ -121,3 +121,96 @@ footer {
   height: 5vh;
 }
 
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 1.5rem;
+  /* height: 2px; */
+  background: #fff;
+  position: relative;
+  transition: all .3s ease;
+}
+/*
+
+/*
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before { top: -6px; }
+.hamburger::after  { top: 6px; } */
+/* For larger screens */
+@media (min-width: 768px) {
+  /* Show the toggle button */
+  .hamburger {
+    display: none;
+  }
+  /* .hamburger {
+    position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #34495e;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+  } */
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+  }
+
+  .nav-items.open {
+    height: 100%;
+    display: flex;
+    /* width: 0; */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s;
+  }
+
+  /* Collapse the nav by default on mobile */
+  /* header {
+    left: 0;
+    right: 0;
+    background: #34495e;
+    position: absolute;
+    height: 50vh;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  header.closed {
+    position: absolute;
+    max-height: 0;
+    opacity: 0;
+    overflow: visible;
+  }
+
+  .navLink {
+    gap: 0;
+    padding: 0.75rem 1.5rem;
+  } */
+}
