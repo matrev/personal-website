@@ -102,8 +102,7 @@ body {
 }
 
 main {
-  height: 100%;
-	min-height: 0;
+  min-height: 80vh;
   padding: 0.5rem;
 }
 
