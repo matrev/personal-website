@@ -14,6 +14,7 @@ export default function Navbar() {
   }
   const { theme, toggleTheme } = themeContext;
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  // const [themeButtonSize, setThemeButtonSize] = useState(40);
 
   const toggleHamburgerButton = () => {
     const nav = document.querySelector('.nav-items');
@@ -48,8 +49,11 @@ export default function Navbar() {
         >
           Now
         </Link>
-        <button className='themeToggleButton' onClick={toggleTheme}>
-          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={24} height={24} />
+        <button className='themeToggleButton' onClick={() => {
+          toggleTheme();
+          toggleHamburgerButton();
+        }}>
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={!isMobileNavOpen ? 24 : 40} height={!isMobileNavOpen ? 24 : 40} />
         </button>
       </div>
       <button className="hamburger" onClick={toggleHamburgerButton}>
