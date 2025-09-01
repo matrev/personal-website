@@ -13,30 +13,47 @@ export default function Navbar() {
     throw new Error('ThemeContext is undefined. Make sure NavBar is wrapped in ThemeProvider.');
   }
   const { theme, toggleTheme } = themeContext;
-  const [toggleMobileNav, setToggleMobileNav] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const toggleHamburgerButton = () => {
     const nav = document.querySelector('.nav-items');
     if (nav) {
       nav.classList.toggle('open');
     }
+    setIsMobileNavOpen(!isMobileNavOpen);
   }
+
 
   return (
     <header>
       <div className="nav-items">
-        <Link href="/" className={pathname === "/" ? 'selectedLink' : 'navLink'}>Home</Link>
-          <Link
-            href="/projects"
-            className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
-          >Projects</Link>
-          <Link href="/now" className={pathname === "/now" ? 'selectedLink' : 'navLink'}>Now</Link>
-          <button className='themeToggleButton' onClick={toggleTheme}>
-            <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={24} height={24}/>
-          </button>
+        <Link
+          href="/"
+          className={pathname === "/" ? 'selectedLink' : 'navLink'} 
+          onNavigate={toggleHamburgerButton}
+        >
+          Home
+        </Link>
+        <Link
+          href="/projects"
+          className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
+          onNavigate={toggleHamburgerButton}
+        >
+          Projects
+        </Link>
+        <Link
+          href="/now"
+          className={pathname === "/now" ? 'selectedLink' : 'navLink'}
+          onNavigate={toggleHamburgerButton}
+        >
+          Now
+        </Link>
+        <button className='themeToggleButton' onClick={toggleTheme}>
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={24} height={24} />
+        </button>
       </div>
       <button className="hamburger" onClick={toggleHamburgerButton}>
-        hamburger icon
+        <Image src={!isMobileNavOpen ? 'hamburger-svgrepo-com.png' : 'close-x-svgrepo-com.png'} alt='test' width={24} height={24} />
       </button>
     </header>
   );
