@@ -91,8 +91,7 @@ header {
   margin-top: 10px;
   display: flex;
   gap: 40px;
-  margin-right: 10vw;
-  margin-left: 10vw;
+  padding: 0 .5rem 0 .5rem;
 }
 
 body {
@@ -103,9 +102,9 @@ body {
 }
 
 main {
-  height: 80vh;
+  height: 100%;
 	min-height: 0;
-	overflow: auto;
+  padding: 0.5rem;
 }
 
 footer {
@@ -113,7 +112,8 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  height: 5vh;
+  /* border-top: 1px solid red; */
+  padding: 1.5rem 2.5rem;
 }
 
 
@@ -121,11 +121,12 @@ footer {
 .hamburger::before,
 .hamburger::after {
   width: 1.5rem;
-  /* height: 2px; */
   background: transparent;
   border: none;
   position: relative;
-  /* transition: all .3s ease; */
+  transition: all .3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 /* For larger screens */
@@ -169,35 +170,7 @@ footer {
     transition: 0.5s;
   }
 
-  /* Collapse the nav by default on mobile */
-  /* header {
-    left: 0;
-    right: 0;
-    background: #34495e;
-    position: absolute;
-    height: 50vh;
-    width: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    transition: max-height .3s ease, opacity 0.3s ease;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-height: 500px;
-    opacity: 1;
-  }
+  /* footer {
 
-  header.closed {
-    position: absolute;
-    max-height: 0;
-    opacity: 0;
-    overflow: visible;
-  }
-
-  .navLink {
-    gap: 0;
-    padding: 0.75rem 1.5rem;
   } */
 }

@@ -53,7 +53,7 @@ export default function Navbar() {
         </button>
       </div>
       <button className="hamburger" onClick={toggleHamburgerButton}>
-        <Image src={!isMobileNavOpen ? 'hamburger-svgrepo-com.png' : 'close-x-svgrepo-com.png'} alt='test' width={24} height={24} />
+        <Image src={!isMobileNavOpen ? 'hamburger-svgrepo-com.png' : 'close-x-svgrepo-com.png'} alt='test' width={30} height={30} />
       </button>
     </header>
   );
