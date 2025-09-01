@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from './ThemeContext';
 
 export default function Navbar() {
@@ -12,9 +12,10 @@ export default function Navbar() {
   if (!themeContext) {
     throw new Error('ThemeContext is undefined. Make sure NavBar is wrapped in ThemeProvider.');
   }
+  
   const { theme, toggleTheme } = themeContext;
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  // const [themeButtonSize, setThemeButtonSize] = useState(40);
+  const [themeButtonSize, setThemeButtonSize] = useState(24);
 
   const toggleHamburgerButton = () => {
     const nav = document.querySelector('.nav-items');
@@ -24,6 +25,14 @@ export default function Navbar() {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
 
+  useEffect(() => {
+    if (isMobileNavOpen) {
+      setThemeButtonSize(40);
+    } else {
+      setThemeButtonSize(24);
+    }
+  }, [isMobileNavOpen])
+
 
   return (
     <header>
@@ -31,32 +40,34 @@ export default function Navbar() {
         <Link
           href="/"
           className={pathname === "/" ? 'selectedLink' : 'navLink'} 
-          onNavigate={toggleHamburgerButton}
+          onNavigate={isMobileNavOpen ? toggleHamburgerButton : () => {}}
         >
           Home
         </Link>
         <Link
           href="/projects"
           className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
-          onNavigate={toggleHamburgerButton}
+          onNavigate={isMobileNavOpen ? toggleHamburgerButton : () => {}}
         >
           Projects
         </Link>
         <Link
           href="/now"
           className={pathname === "/now" ? 'selectedLink' : 'navLink'}
-          onNavigate={toggleHamburgerButton}
+          onNavigate={isMobileNavOpen ? toggleHamburgerButton : () => {}}
         >
           Now
         </Link>
         <button className='themeToggleButton' onClick={() => {
           toggleTheme();
-          toggleHamburgerButton();
+          if(isMobileNavOpen) {
+            toggleHamburgerButton();
+          }
         }}>
-          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={!isMobileNavOpen ? 24 : 40} height={!isMobileNavOpen ? 24 : 40} />
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={themeButtonSize} height={themeButtonSize} />
         </button>
       </div>
-      <button className="hamburger" onClick={toggleHamburgerButton}>
+      <button className="hamburger" onClick={isMobileNavOpen ? toggleHamburgerButton : () => {}}>
         <Image src={!isMobileNavOpen ? 'hamburger-svgrepo-com.png' : 'close-x-svgrepo-com.png'} alt='test' width={30} height={30} />
       </button>
     </header>
