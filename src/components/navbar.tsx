@@ -64,11 +64,11 @@ export default function Navbar() {
             toggleHamburgerButton();
           }
         }}>
-          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='test' width={themeButtonSize} height={themeButtonSize} />
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='theme-toggle-button' width={themeButtonSize} height={themeButtonSize} />
         </button>
       </div>
       <button className="hamburger" onClick={toggleHamburgerButton}>
-        <Image src={!isMobileNavOpen ? 'hamburger-svgrepo-com.png' : 'close-x-svgrepo-com.png'} alt='test' width={30} height={30} />
+        {!isMobileNavOpen ?  <>&#9776;</> : <>&times;</>}
       </button>
     </header>
   );

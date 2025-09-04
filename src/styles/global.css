@@ -13,6 +13,33 @@
   --md: 800px;
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  gap: 40px;
+  padding: 0 .5rem 0 .5rem;
+}
+
+main {
+  min-height: 80vh;
+  padding: 0.5rem;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.8rem;
+  font-family: var(--font-family);
+  margin: 0;
+  width: 95vw;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body.light-mode {
   --background-color: #f9f6ef;
   --text-color: #292f36;
@@ -21,24 +48,20 @@ body.light-mode {
   --code-font-color: #292f36;
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  /* font-size: 1.2rem; */
-  line-height: 1.8rem;
-  font-family: var(--font-family);
-  margin: 0;
-}
-
-header {
+footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
+  padding: 1.5rem 2.5rem;
 }
 
 a, a:hover {
   color: var(--highlighted-text);
+}
+
+h1 {
+  line-height: normal;
 }
 
 .showMoreButton {
@@ -87,40 +110,13 @@ a, a:hover {
   align-self: center;
 }
 
-header {
-  margin-top: 10px;
-  display: flex;
-  gap: 40px;
-  padding: 0 .5rem 0 .5rem;
-}
-
-body {
-  width: 95vw;
-  font-size: 1.2rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-main {
-  min-height: 80vh;
-  padding: 0.5rem;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  /* border-top: 1px solid red; */
-  padding: 1.5rem 2.5rem;
-}
-
-
 .hamburger,
 .hamburger::before,
 .hamburger::after {
   width: 1.5rem;
+  color: var(--highlighted-text);
   background: transparent;
+  font-size: 40px;
   border: none;
   position: relative;
   transition: all .3s ease;
@@ -158,14 +154,14 @@ footer {
     height: 100%;
     display: flex;
     width: 100%;
-    position: fixed; /* Stay in place */
+    position: fixed;
     justify-content: center;
     flex-direction: column;
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
     transition: 1.5s;
     gap: 50px;
   }
@@ -173,8 +169,4 @@ footer {
   .nav-items.open, .navLink {
     font-size: 40px;
   }
-
-  /* footer {
-
-  } */
 }
