@@ -32,7 +32,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-notes": "cd notes && git pull origin main && cd .. && git add notes & git commit -m \"Updating notes directory\" && git push"
+    "update-notes": "cd notes && git pull origin main && cd .. && git add notes && git commit -m \"Updating notes directory\" && git push"
   },
   "browserslist": {
     "production": [
