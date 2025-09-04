@@ -64,7 +64,7 @@ export default function Navbar() {
             toggleHamburgerButton();
           }
         }}>
-          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='theme-toggle-button' width={themeButtonSize} height={themeButtonSize} />
+          <Image src={`/${theme === 'dark' ? 'sun' : 'moon'}-svgrepo-com.png`} alt='theme-toggle-button' width={themeButtonSize} height={themeButtonSize} priority/>
         </button>
       </div>
       <button className="hamburger" onClick={toggleHamburgerButton}>
