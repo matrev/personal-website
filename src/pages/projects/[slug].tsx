@@ -1,5 +1,5 @@
 import type { GetStaticProps, InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
-import { ParsedPost, getAllProjectSlugs, getProjectPost } from 'utils/markdownUtils';
+import { ParsedPost, getAllProjectSlugs, getProjectPost, reactParserOptions } from 'utils/markdownUtils';
 import parse from 'html-react-parser';
 import Link from 'next/link';
 
@@ -36,7 +36,7 @@ export default function ProjectPage({
         </time>
       )}
       <div className="prose">
-        {projectPostContent.contentHtml && parse(projectPostContent.contentHtml)}
+        {projectPostContent.contentHtml && parse(projectPostContent.contentHtml, reactParserOptions)}
       </div>
     </>
   );

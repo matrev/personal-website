@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { CONTENT_DIRECTORIES } from './constants';
+import { attributesToProps, HTMLReactParserOptions, Text, Element, DOMNode } from 'html-react-parser';
 
 export type PostMetadata = {
   title: string,
@@ -76,4 +77,17 @@ export async function parseMarkdownFile(filePath: string): Promise<ParsedPost> {
         content: parsed.content,
         contentHtml
     };
+}
+
+export const reactParserOptions: HTMLReactParserOptions = {
+  replace: (domNode: DOMNode) => {
+    if (domNode.type === 'tag' && domNode instanceof Element && domNode.name === 'a') {
+      const props = attributesToProps(domNode.attribs)
+      props.target = "_blank"
+      props.rel = "noopener noreferrer nofollow"
+
+      return (<a {...props}>{(domNode.children[0] as Text).data}</a>)
+    }
+    return domNode
+  }
 }
