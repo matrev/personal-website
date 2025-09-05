@@ -1,7 +1,20 @@
 import type { GetStaticProps, InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
-import { ParsedPost, getAllProjectSlugs, getProjectPost, reactParserOptions } from 'utils/markdownUtils';
-import parse from 'html-react-parser';
+import { ParsedPost, getAllProjectSlugs, getProjectPost } from 'utils/markdownUtils';
+import parse, { attributesToProps, HTMLReactParserOptions, Text, Element, DOMNode } from 'html-react-parser';
 import Link from 'next/link';
+
+export const reactParserOptions: HTMLReactParserOptions = {
+  replace: (domNode: DOMNode) => {
+    if (domNode.type === 'tag' && domNode instanceof Element && domNode.name === 'a' && !domNode.attribs.href?.includes("marktrevino.com") ) {
+      const props = attributesToProps(domNode.attribs)
+      props.target = "_blank"
+      props.rel = "noopener noreferrer nofollow"
+      console.log('domNode', domNode)
+      return (<a {...props}>{(domNode.children[0] as Text).data}</a>)
+    }
+    return domNode
+  }
+}
 
 export const getStaticPaths = (async () => {
   const slugs = getAllProjectSlugs();
