@@ -22,6 +22,7 @@ export const ThemeProvider = ({ children }: {children: ReactNode}) => {
     useEffect(() => {
         setTheme(getInitialTheme());
         localStorage.setItem('theme', theme);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

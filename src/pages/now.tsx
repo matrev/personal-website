@@ -3,12 +3,12 @@ import { getMarkdownFiles, parseMarkdownFile, ParsedPost } from 'utils/markdownU
 import ShowMoreButton from 'components/showMoreButton';
 import { CONTENT_DIRECTORIES } from 'utils/constants';
 
-export const getStaticProps = (async (context) => {
+export const getStaticProps = (async () => {
   const nowPostFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.NOW, ["NowTemplate.md"]);
 
   const nowPostsContent = await Promise.all(
     nowPostFilenames.map(file => {
-      const filePath =  CONTENT_DIRECTORIES.NOW + '/' + file;
+      const filePath =  CONTENT_DIRECTORIES.NOW + "/" + file;
       return parseMarkdownFile(filePath);
     })
   );
@@ -28,7 +28,7 @@ export default function Now({
 
   return (
   <>
-    <h1>This is what I'm up to right about <a href="https://www.nownownow.com/about" target="_blank" rel='noopener noreferrer'>/now</a></h1>  
+    <h1>This is what I&apos;m up to right about <a href="https://www.nownownow.com/about" target="_blank" rel="noopener noreferrer">/now</a></h1>  
     <br />
     <h2>{latestNowPost?.data.title}</h2>
     <p>{latestNowPost?.data.date}</p>
