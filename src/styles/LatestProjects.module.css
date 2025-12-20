@@ -1,0 +1,66 @@
+.latestProjectsContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 1.5rem;
+  background-color: var(--code-black);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.card p {
+  color: var(--code-font-color);
+  margin: 10px 0;
+}
+
+.readMore, .source {
+  border: solid 3px var(--highlighted-text);
+  border-radius: 4px;
+  padding: 5px;
+  text-decoration: none;
+  color: var(--text-color);
+  display: inline-block;
+  margin: 10px 5px;
+  transition: background-color 0.3s;
+}
+
+.readMore:hover, .source:hover {
+  background-color: var(--highlighted-text);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.viewAllButton {
+  border: solid 3px var(--highlighted-text);
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  display: inline-block;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+}
+
+.viewAllButton:hover {
+  background-color: var(--highlighted-text);
+  color: var(--background-color);
+}
