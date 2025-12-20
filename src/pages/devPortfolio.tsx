@@ -1,7 +1,7 @@
 
 export default function DevPortfolio() {
   return <>
-    <h1>Hello! I'm Mark.</h1>
+    <h1>Hello! Im Mark.</h1>
     <p>I am a full stack software engineer with over three years of experience building accessible, global, scalable applications.</p>
 
     <h2>Work Experience</h2>

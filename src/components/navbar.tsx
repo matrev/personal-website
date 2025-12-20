@@ -45,13 +45,6 @@ export default function Navbar() {
           Home
         </Link>
         <Link
-          href="/projects"
-          className={pathname.startsWith('/projects') ? 'selectedLink' : 'navLink'}
-          onNavigate={isMobileNavOpen ? toggleHamburgerButton : () => {}}
-        >
-          Projects
-        </Link>
-        <Link
           href="/now"
           className={pathname === "/now" ? 'selectedLink' : 'navLink'}
           onNavigate={isMobileNavOpen ? toggleHamburgerButton : () => {}}

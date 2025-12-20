@@ -1,0 +1,83 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carouselInner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.slide h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.slide p {
+  color: #666;
+  margin: 10px 0;
+}
+
+.readMore {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 8px 16px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.readMore:hover {
+  background-color: #0051cc;
+}
+
+.source {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.source:hover {
+  background-color: #218838;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #bbb;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #0070f3;
+}
