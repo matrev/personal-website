@@ -9,7 +9,6 @@ export const reactParserOptions: HTMLReactParserOptions = {
       const props = attributesToProps(domNode.attribs)
       props.target = "_blank"
       props.rel = "noopener noreferrer nofollow"
-      console.log('domNode', domNode)
       return (<a {...props}>{(domNode.children[0] as Text).data}</a>)
     }
     return domNode
@@ -19,10 +18,9 @@ export const reactParserOptions: HTMLReactParserOptions = {
 export const getStaticPaths = (async () => {
   const slugs = getAllProjectSlugs();
   return {
-    paths: slugs.flatMap(slug => [
-      { params: { slug: slug } },
-      { params: { slug: slug.toLowerCase() } }
-    ]),
+    // Build only the canonical (original) casing for each slug. Mis-cased
+    // requests are redirected to this casing by the head script in _document.
+    paths: slugs.map(slug => ({ params: { slug } })),
     fallback: false,
   }
 }) satisfies GetStaticPaths

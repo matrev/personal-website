@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
-import { CONTENT_DIRECTORIES } from './constants';
+import { CONTENT_DIRECTORIES, IGNORED_PROJECT_FILES } from './constants';
 
 export type PostMetadata = {
   title: string,
@@ -31,7 +31,7 @@ export async function markdownToHtml(markdown: string): Promise<string> {
 }
 
 export async function getProjectPreviews(): Promise<ProjectPreview[]> {
-    const projectFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.PROJECTS, ["ProjectsTemplate.md"]);
+    const projectFilenames = getMarkdownFiles(CONTENT_DIRECTORIES.PROJECTS, IGNORED_PROJECT_FILES);
     return projectFilenames.map(file => {
         const filePath = `${CONTENT_DIRECTORIES.PROJECTS}/${file}`;
         const { data } = matter(fs.readFileSync(filePath, 'utf8'));
@@ -51,13 +51,13 @@ export async function getProjectPost(slug: string): Promise<ParsedPost> {
     return await parseMarkdownFile(filePath);
 }
 
-export function getMarkdownFiles(directory: string, ignoreFileNames: string[]) {
+export function getMarkdownFiles(directory: string, ignoreFileNames: readonly string[] = []) {
   const files = fs.readdirSync(directory);
   return files.filter(file => path.extname(file).toLowerCase() === '.md' && !ignoreFileNames.includes(file));
 }
 
 export function getAllProjectSlugs(): string[] {
-  const projectPostFiles = fs.readdirSync(CONTENT_DIRECTORIES.PROJECTS);
+  const projectPostFiles = getMarkdownFiles(CONTENT_DIRECTORIES.PROJECTS, IGNORED_PROJECT_FILES);
   return projectPostFiles.map(filename => filename.replace(/\.md$/, ''))
 }
 
