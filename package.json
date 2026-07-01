@@ -26,12 +26,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "next build & gh-pages -d build",
+    "deploy": "next build && gh-pages -d out",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-notes": "cd notes && git pull origin main && cd .. && git add notes && git commit -am \"Updating notes directory\" && git push"
+    "update-notes": "git submodule update --remote --merge notes && git add notes && git commit -am \"Updating notes directory\" && git push"
   },
   "browserslist": {
     "production": [
